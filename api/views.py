@@ -21,7 +21,7 @@ logger=logging.getLogger(__name__)
 class ConsolidatedBookAPIView(APIView):
     def get(self, request, *args, **kwargs):
         try:
-            access_key = 'sk_b8aa3dcd2c4e4fc396a9d7388a6b8b00'
+            access_key = 'secret key'
             search_query = request.query_params.get('search', '')
             
             symbols = Symbol.objects.all()
@@ -45,7 +45,7 @@ class ConsolidatedBookAPIView(APIView):
     def fetch_marketstack_data(self, exchange, symbol, access_key):
         try:
             # Update the URL to the new API endpoint
-            url = f'https://api.iex.cloud/v1/data/core/historical_prices/{symbol.name}?token=sk_b8aa3dcd2c4e4fc396a9d7388a6b8b00'
+            url = f'https://api.iex.cloud/v1/data/core/historical_prices/{symbol.name}?token=secret_key'
 
             response = requests.get(url)
 
